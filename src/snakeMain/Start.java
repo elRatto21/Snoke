@@ -574,6 +574,7 @@ public class Start extends JFrame {
 			}
 			oldDir = newDir;
 			//System.out.println("brukes");
+			//
 		}
 	}
 }
