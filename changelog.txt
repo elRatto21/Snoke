@@ -1,0 +1,9 @@
+V0.1
+Made game playable
+
+V0.1.1
+Highscore counter
+
+V0.2
+Main menu
+Start and Quit buttons
