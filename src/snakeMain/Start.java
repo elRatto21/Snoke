@@ -21,7 +21,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 /*
 * 
-* Snoke Version 1.3
+* Snoke Version 0.2
 *
 */
 
