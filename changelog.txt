@@ -7,3 +7,6 @@ Highscore counter
 V0.2
 Main menu
 Start and Quit buttons
+
+V0.3
+Addes Settings menu with volume slider
