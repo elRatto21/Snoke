@@ -34,11 +34,14 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 
 public class Start extends JFrame {
+	
 	private int highscore;
 	private int oldScore;
 	private int newScore;
+	
 	private JPanel player = new JPanel();
 	private JPanel food = new JPanel();
+	
 	private int xPlayer = 100;
 	private int yPlayer = 100;
 	private int playerHeight = 50;
@@ -47,13 +50,9 @@ public class Start extends JFrame {
 	private int yFood = 300;
 	public int oldX = xPlayer;
 	public int oldY = yPlayer;
-	private int canY;
 	private int tempX;
-	private boolean start = false;
 	private int tempY;
 	private int tempTempX;
-	private int oldHigh;
-	private int scoreNow;
 	private int tempTempY;
 	private int volume = 10;
 	private int foodCount = 0;
@@ -63,8 +62,10 @@ public class Start extends JFrame {
 	private int delay = 300;
 	private Timer timer1 = new Timer(100, null);
 	public static int dir; //Direction: 1 = North  2 = East  3 = South  4 = West
+	
 	private JLabel lGameover = new JLabel();
 	Random rnd = new Random();
+	
 	private Canvas jMenue = new Canvas();
 	private JPanel jSetSettings = new JPanel();
 	private JSlider jSetDB = new JSlider();
@@ -80,9 +81,12 @@ public class Start extends JFrame {
 	private JButton jStats = new JButton();
 	private JButton jHome = new JButton();
 	private JLabel jSnoke = new JLabel();
+	
 	ArrayList <String> cords = new ArrayList <String>();
 	ArrayList <Canvas> canvs = new ArrayList <Canvas>();
+	
 	Container cp = getContentPane();
+	
 	AudioInputStream audioIn = AudioSystem.getAudioInputStream(Start.class.getResource("music.wav"));
 	Clip clip = AudioSystem.getClip();
 	AudioInputStream audioIn2 = AudioSystem.getAudioInputStream(Start.class.getResource("clown.wav"));
@@ -117,14 +121,7 @@ public class Start extends JFrame {
 		setTitle("Snake auf Wish bestellt");
 		setResizable(false);
 		cp.setLayout(null);
-		
-		/*this.addKeyListener(new KeyAdapter() { 
-			public void keyPressed(KeyEvent evt) { 
-				snake_KeyPressed(evt);
-			}
-		});*/
-		
-		
+
 		jSetDBText.setBounds(325, 169, 300, 75);
 		jSetDBText.setText("VOLUME");
 		jSetDBText.setForeground(Color.WHITE);
@@ -226,7 +223,6 @@ public class Start extends JFrame {
 				try {
 					jSettings_ActionPerformed(evt);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -338,27 +334,6 @@ public class Start extends JFrame {
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		new Start();
 	}
-
-	/*public void snake_KeyPressed(KeyEvent evt) {
-		System.out.println("wdd");
-		if(evt.getKeyCode() == 38) {
-			if(dir != 3) {
-				dir = 1;
-			}
-		} else if (evt.getKeyCode() == 40) {
-			if(dir != 1) {
-				dir = 3;
-			}
-		} else if (evt.getKeyCode() == 39) {
-			if(dir != 4) {
-				dir = 2; 
-			}
-		} else if (evt.getKeyCode() == 37) {
-			if(dir != 2) {	
-				dir = 4; 
-			}
-		}
-	}*/
 
 	public void timer1_ActionPerformed(ActionEvent evt) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
 		if(vier == 1) {
@@ -828,8 +803,6 @@ public class Start extends JFrame {
 				Start.dir = 4;
 			}
 			oldDir = newDir;
-			//System.out.println("brukes");
-			//
 		}
 	}
 }
