@@ -2,6 +2,8 @@ package snakeMain;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.event.*;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
 
+import javax.imageio.*;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -34,8 +37,8 @@ public class Start extends JFrame {
 	private int highscore;
 	private int oldScore;
 	private int newScore;
-	private Canvas player = new Canvas();
-	private Canvas food = new Canvas();
+	private JPanel player = new JPanel();
+	private JPanel food = new JPanel();
 	private int xPlayer = 100;
 	private int yPlayer = 100;
 	private int playerHeight = 50;
@@ -86,6 +89,7 @@ public class Start extends JFrame {
 	AudioInputStream audioIn2 = AudioSystem.getAudioInputStream(Start.class.getResource("clown.wav"));
 	Clip clip2 = AudioSystem.getClip();
 	
+	
 	private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
 	private static final String MOVE_UP = "move up";
 	private static final String MOVE_DOWN = "move down";
@@ -120,6 +124,7 @@ public class Start extends JFrame {
 				snake_KeyPressed(evt);
 			}
 		});*/
+		
 		
 		jSetDBText.setBounds(325, 169, 300, 75);
 		jSetDBText.setText("VOLUME");
@@ -290,8 +295,8 @@ public class Start extends JFrame {
 		lGameover.setBackground(Color.RED);
 		lGameover.setOpaque(true);
 		cp.add(lGameover);
-		player.setBounds(xPlayer, yPlayer, playerHeight, playerWidth);
-		player.setBackground(new Color(0x404040));
+		
+		player.setBackground(null);
 		cp.add(player);
 		food.setBounds(xFood, yFood, 50, 50);
 		food.setBackground(Color.GREEN);
@@ -569,6 +574,7 @@ public class Start extends JFrame {
 		jMenue.setVisible(false);
 		jHome.setVisible(false);
 		readVolume();
+		addSkin();
 		starteDiese();
 	}
 	
@@ -786,6 +792,19 @@ public class Start extends JFrame {
 		
 		String volStr = br.readLine();
 		volume = Integer.parseInt(volStr);
+	}
+	
+	public void addSkin() {
+		ImageIcon playerSkin = new ImageIcon(Start.class.getResource("playerSkin.jpg"));
+		System.out.println(playerSkin.getIconHeight());
+		JLabel skinLabel = new JLabel();
+		player.setBounds(xPlayer, yPlayer, playerHeight, playerWidth);
+		
+		System.out.println(skinLabel.getHeight());
+		skinLabel.setIcon(playerSkin);
+		player.add(skinLabel);
+		skinLabel.setSize(50, 50);
+		System.out.println(player.getHeight());
 	}
 	
 	private class MoveAction extends AbstractAction{
