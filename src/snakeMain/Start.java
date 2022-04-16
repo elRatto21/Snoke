@@ -29,10 +29,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 *
 */
 
-
-
-
-
 public class Start extends JFrame {
 	
 	private int highscore;
@@ -163,7 +159,6 @@ public class Start extends JFrame {
 				try {
 					jSetHome_ActionPerformed(evt);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -241,7 +236,6 @@ public class Start extends JFrame {
 			}
 		});
 		
-		//Menü
 		jMenue.setBounds(0, 0, 764, 737);
 		jMenue.setVisible(true);
 		jMenue.setBackground(Color.DARK_GRAY);
@@ -266,14 +260,12 @@ public class Start extends JFrame {
 			}
 		});
 		
-		//Highscore Anzeige
 		jHighscore.setBounds(244, 100, 278, 725);
 		jHighscore.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 30));
 		jHighscore.setHorizontalAlignment(SwingConstants.CENTER);
 		jHighscore.setVisible(false);
 		cp.add(jHighscore);
 		
-		//keine Lust mehr zu kommentieren, find selbst raus was Sache ist kekw
 		jEndscore.setBounds(244, 384, 278, 68);
 		jEndscore.setText("");
 		jEndscore.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 30));
@@ -351,7 +343,6 @@ public class Start extends JFrame {
 				yPlayer = yPlayer - 50;
 				player.setBounds(xPlayer, yPlayer, playerHeight, playerWidth);
 			} else {
-				//System.out.println("Dead North");
 				gameOver();
 			}
 			break;
@@ -362,7 +353,6 @@ public class Start extends JFrame {
 				xPlayer = xPlayer + 50;
 				player.setBounds(xPlayer, yPlayer, playerHeight, playerWidth);
 			} else {
-				//System.out.println("Dead East");
 				gameOver();
 			}
 			break;
@@ -373,7 +363,6 @@ public class Start extends JFrame {
 				yPlayer = yPlayer + 50;
 				player.setBounds(xPlayer, yPlayer, playerHeight, playerWidth);
 			} else {
-				//System.out.println("Dead South");
 				gameOver();;
 			}
 			break;
@@ -384,7 +373,6 @@ public class Start extends JFrame {
 				xPlayer = xPlayer - 50;
 				player.setBounds(xPlayer, yPlayer, playerHeight, playerWidth);
 			} else {
-				//System.out.println("Dead West");
 				gameOver();
 			}
 			break;
@@ -422,7 +410,6 @@ public class Start extends JFrame {
 			jScore.setText("Score: " + foodCount);
 			
 			String valStr[] = new String[2];
-			//System.out.println(cords.size());
 			
 			if(cords.size() == 0) {
 				cords.add(oldX + " " + oldY);
@@ -431,22 +418,16 @@ public class Start extends JFrame {
 				canvs.get(canvs.size()-1).setBackground(Color.GRAY);
 				canvs.get(canvs.size()-1).setVisible(true);
 				cp.add(canvs.get(canvs.size()-1));
-				//System.out.println(cords);
-				//System.out.println(canvs);
 			} else {
 				valStr = cords.get(cords.size()-1).split(" ");
-				//System.out.println(valStr[0] + " " + valStr[1]);
 				int lastX = Integer.parseInt(valStr[0]);
 				int lastY = Integer.parseInt(valStr[1]);
-				//System.out.println(lastX + " " + lastY);
 				cords.add(lastX + " " + lastY);
 				canvs.add(new Canvas());
 				canvs.get(canvs.size()-1).setBounds(lastX, lastY, 50, 50);
 				canvs.get(canvs.size()-1).setBackground(Color.GRAY);
 				canvs.get(canvs.size()-1).setVisible(true);
 				cp.add(canvs.get(canvs.size()-1));
-				//System.out.println(cords);
-				//System.out.println(canvs);
 			}
 		}
 		for(int u = 0; u < canvs.size(); u++) {
@@ -454,7 +435,6 @@ public class Start extends JFrame {
 		}
 		for(int h = 0; h < canvs.size(); h++) {
 			if(player.getX() == canvs.get(h).getX() && player.getY() == canvs.get(h).getY()) {
-				//System.out.println("Dead Crash");
 				gameOver();
 			}
 		}
@@ -581,7 +561,6 @@ public class Start extends JFrame {
 	}
 	
 	public void jHome_ActionPerformed(ActionEvent evt) throws NumberFormatException, IOException {
-		//System.out.println("yikes");
 		
 		lGameover.setVisible(false);
 		jHighscore.setVisible(false);
@@ -606,13 +585,11 @@ public class Start extends JFrame {
 		xFood = 300;
 		yFood = 300;
 		food.setBounds(xFood, yFood, 50, 50);
-		//System.out.println(canvs.size());
 		for(int iy = 0; iy < canvs.size(); iy++) {
 			canvs.get(iy).setVisible(false);
 		}
 		canvs.removeAll(canvs);
 		cords.removeAll(cords);
-		//System.out.println(canvs.size());
 		jSnoke.setVisible(true);
 		jHome.setVisible(true);
 		jStart.setVisible(true);
@@ -620,7 +597,6 @@ public class Start extends JFrame {
 		jSettings.setVisible(true);
 		jQuit.setVisible(true);
 		jMenue.setVisible(true);
-		//System.out.println(canvs);
 	}
 	
 	public void menue() {
@@ -791,8 +767,6 @@ public class Start extends JFrame {
 		}
 		
 		public void actionPerformed(ActionEvent e) {
-			//System.out.println(newDir + " " + this.oldDir);
-			//System.out.println(Start.dir);
 			if(newDir == 1 && Start.dir != 3) {
 				Start.dir = 1;
 			} else if(newDir == 2 && Start.dir != 4) {
