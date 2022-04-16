@@ -47,7 +47,6 @@ public class Start extends JFrame {
 	private int yFood = 300;
 	public int oldX = xPlayer;
 	public int oldY = yPlayer;
-	private int canX;
 	private int canY;
 	private int tempX;
 	private boolean start = false;
